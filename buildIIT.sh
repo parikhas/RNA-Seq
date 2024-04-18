@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# Create index of intron splice sites 
 nice -n19 iit_store \
 -G /scratch/AiptasiaMiSeq/\
 GCA_001417965.1_Aiptasia_genome_1.1_genomic.gff \

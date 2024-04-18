@@ -1,13 +1,17 @@
 #!/bin/bash
+
+# Trim the raw reads using Trimmomatic to remove low quality reads and adapters
+
 fastqPath="raw_fastq/"
 trimPath="trimmed_fastq/"
 for fastq in $fastqPath*.R1.fastq
 do
+	echo $fastq
 	f1=$(echo $fastq | cut -d'.' -f1)
-	numOcc=$(tr -dc '/' <<<"$f2" | awk '{ print length; }')
+	numOcc=$(tr -dc '/' <<<"$f1" | awk '{ print length; }')
 	((numOcc ++))
 	f2=$(echo $f1 |cut -d'/' -f$numOcc)
-	nice -n 19 java -jar /usr/local/programs/Trimmomatic-0.36/trimmomatic-0.36.jar PE \
+	java -jar /usr/local/programs/Trimmomatic-0.36/trimmomatic-0.36.jar PE \
 	-threads 1 -phred33 \
 	$fastqPath$f2.R1.fastq \
 	$fastqPath$f2.R2.fastq \

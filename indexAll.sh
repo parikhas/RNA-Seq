@@ -1,6 +1,9 @@
 #!/bin/sh
-fastqPath="/scratch/AiptasiaMiSeq/fastq/"
-for f1 in $fastqPath*.R1.fastq
+
+# Index the sorted bam files
+
+samPath="Sam/"
+for f1 in $samPath*.sam
 do
 	f2=$(echo $f1 | cut -d'.' -f1)
 	numOcc=$(tr -dc '/' <<<"$f2" | awk '{ print length; }')

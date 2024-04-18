@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# Build a GMAP database from the Aiptasia genome
+
 gmap_build -D . \
 -d AiptasiaGmapDb \
 /scratch/AiptasiaMiSeq/\
